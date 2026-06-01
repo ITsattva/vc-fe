@@ -7,11 +7,14 @@ export default function App() {
   return (
     <div className="app">
       <header className="topnav">
-        <h1 className="brand">Task Tracker</h1>
+        <h1 className="brand">
+          <span className="brand-cat">🐱</span>
+          Purrfect Tasks
+        </h1>
         <nav>
-          <NavLink to="/tasks">Tasks</NavLink>
-          <NavLink to="/projects">Projects</NavLink>
-          <NavLink to="/users">Users</NavLink>
+          <NavLink to="/tasks"><span className="nav-emoji">📋</span>Tasks</NavLink>
+          <NavLink to="/projects"><span className="nav-emoji">📁</span>Projects</NavLink>
+          <NavLink to="/users"><span className="nav-emoji">😺</span>Users</NavLink>
         </nav>
       </header>
 
@@ -24,6 +27,10 @@ export default function App() {
           <Route path="*" element={<Navigate to="/tasks" replace />} />
         </Routes>
       </main>
+
+      <footer className="footer">
+        <span>Made with</span> 🐾 <span>for cat people</span>
+      </footer>
     </div>
   )
 }

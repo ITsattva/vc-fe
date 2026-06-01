@@ -116,7 +116,7 @@ export default function UsersPage() {
   return (
     <div>
       <div className="page-head">
-        <h2>Users</h2>
+        <h2>😺 Users</h2>
         <button onClick={load} disabled={loading}>Refresh</button>
       </div>
 
@@ -186,7 +186,7 @@ export default function UsersPage() {
         {loading ? (
           <div className="loading">Loading…</div>
         ) : users.length === 0 ? (
-          <div className="empty">No users yet.</div>
+          <div className="empty">No users yet — invite your first hooman. 🐾</div>
         ) : (
           <table>
             <thead>

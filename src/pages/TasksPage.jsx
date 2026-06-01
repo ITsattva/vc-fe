@@ -135,7 +135,7 @@ export default function TasksPage() {
   return (
     <div>
       <div className="page-head">
-        <h2>Tasks</h2>
+        <h2>📋 Tasks</h2>
         <button onClick={load} disabled={loading}>Refresh</button>
       </div>
 
@@ -210,7 +210,7 @@ export default function TasksPage() {
         {loading ? (
           <div className="loading">Loading…</div>
         ) : tasks.length === 0 ? (
-          <div className="empty">No tasks yet.</div>
+          <div className="empty">No tasks yet — time for a catnap. 😴</div>
         ) : (
           <table>
             <thead>

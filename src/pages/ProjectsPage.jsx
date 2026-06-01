@@ -111,7 +111,7 @@ export default function ProjectsPage() {
   return (
     <div>
       <div className="page-head">
-        <h2>Projects</h2>
+        <h2>📁 Projects</h2>
         <button onClick={load} disabled={loading}>Refresh</button>
       </div>
 
@@ -156,7 +156,7 @@ export default function ProjectsPage() {
         {loading ? (
           <div className="loading">Loading…</div>
         ) : projects.length === 0 ? (
-          <div className="empty">No projects yet.</div>
+          <div className="empty">No projects yet — start a new adventure. 🧶</div>
         ) : (
           <table>
             <thead>
