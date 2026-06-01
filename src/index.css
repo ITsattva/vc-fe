@@ -1,0 +1,171 @@
+:root {
+  --bg: #f6f7f9;
+  --panel: #ffffff;
+  --border: #e2e5ea;
+  --text: #1f2430;
+  --muted: #8a909c;
+  --accent: #3b6ef5;
+  --accent-hover: #2f5ad6;
+  --danger: #e0483b;
+  --danger-hover: #c43b2f;
+  font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+}
+
+.app { min-height: 100vh; }
+
+/* ---- Top nav ---- */
+.topnav {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  padding: 0 24px;
+  height: 56px;
+  background: var(--panel);
+  border-bottom: 1px solid var(--border);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+.brand { font-size: 18px; margin: 0; }
+.topnav nav { display: flex; gap: 8px; }
+.topnav nav a {
+  text-decoration: none;
+  color: var(--muted);
+  padding: 6px 12px;
+  border-radius: 6px;
+  font-weight: 500;
+}
+.topnav nav a:hover { background: var(--bg); color: var(--text); }
+.topnav nav a.active { background: var(--accent); color: #fff; }
+
+.content { max-width: 1100px; margin: 0 auto; padding: 24px; }
+
+/* ---- Page header ---- */
+.page-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 16px;
+}
+.page-head h2 { margin: 0; }
+
+/* ---- Panels / cards ---- */
+.panel {
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 16px;
+  margin-bottom: 16px;
+}
+.panel h3 { margin: 0 0 12px; font-size: 15px; }
+
+/* ---- Forms ---- */
+.form-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 12px;
+}
+.field { display: flex; flex-direction: column; gap: 4px; }
+.field label { font-size: 13px; color: var(--muted); }
+.field input,
+.field select,
+.field textarea {
+  padding: 8px 10px;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  font-size: 14px;
+  font-family: inherit;
+  background: #fff;
+}
+.field textarea { resize: vertical; min-height: 38px; }
+.hint { font-size: 12px; color: var(--muted); }
+.form-actions { margin-top: 12px; display: flex; gap: 8px; }
+
+/* ---- Buttons ---- */
+button {
+  cursor: pointer;
+  border: 1px solid var(--border);
+  background: #fff;
+  color: var(--text);
+  padding: 7px 14px;
+  border-radius: 6px;
+  font-size: 14px;
+  font-family: inherit;
+}
+button:hover { background: var(--bg); }
+button:disabled { opacity: 0.5; cursor: not-allowed; }
+button.primary {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: #fff;
+}
+button.primary:hover { background: var(--accent-hover); }
+button.danger {
+  background: var(--danger);
+  border-color: var(--danger);
+  color: #fff;
+}
+button.danger:hover { background: var(--danger-hover); }
+button.link {
+  border: none;
+  background: none;
+  color: var(--accent);
+  padding: 4px 6px;
+}
+button.link:hover { text-decoration: underline; background: none; }
+button.link.danger { color: var(--danger); }
+
+/* ---- Tables ---- */
+table { width: 100%; border-collapse: collapse; }
+th, td {
+  text-align: left;
+  padding: 10px 12px;
+  border-bottom: 1px solid var(--border);
+  font-size: 14px;
+  vertical-align: middle;
+}
+th { font-size: 12px; text-transform: uppercase; letter-spacing: 0.03em; color: var(--muted); }
+tr:last-child td { border-bottom: none; }
+td select { padding: 4px 6px; border: 1px solid var(--border); border-radius: 5px; font-size: 13px; }
+
+.row-actions { display: flex; gap: 4px; white-space: nowrap; }
+.muted { color: var(--muted); }
+
+/* ---- Badges ---- */
+.badge {
+  display: inline-block;
+  padding: 2px 8px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 600;
+}
+.status-TODO { background: #eef1f6; color: #5a6172; }
+.status-IN_PROGRESS { background: #e3f0ff; color: #2563c9; }
+.status-DONE { background: #e3f7ea; color: #1f9d52; }
+.status-BLOCKED { background: #fde7e4; color: #d23b2c; }
+
+.priority-LOW { background: #eef1f6; color: #5a6172; }
+.priority-MEDIUM { background: #fff5e0; color: #c4860a; }
+.priority-HIGH { background: #ffe9d9; color: #d96a1f; }
+.priority-CRITICAL { background: #fde0e0; color: #d12c2c; }
+
+/* ---- Status banners ---- */
+.banner {
+  padding: 10px 14px;
+  border-radius: 8px;
+  margin-bottom: 16px;
+  font-size: 14px;
+}
+.banner.error { background: #fde7e4; color: #b5281a; border: 1px solid #f3b6ad; }
+.loading { color: var(--muted); padding: 20px 0; }
+.empty { color: var(--muted); padding: 20px 0; }
+
+.field-error { color: var(--danger); font-size: 12px; }
