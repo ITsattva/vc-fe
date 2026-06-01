@@ -1,14 +1,34 @@
+import { useEffect, useState } from 'react'
 import { NavLink, Navigate, Route, Routes } from 'react-router-dom'
 import TasksPage from './pages/TasksPage.jsx'
 import ProjectsPage from './pages/ProjectsPage.jsx'
 import UsersPage from './pages/UsersPage.jsx'
 
+// Remember the visitor's preference across sessions; fall back to their OS
+// setting the first time they show up.
+function getInitialTheme() {
+  const saved = localStorage.getItem('theme')
+  if (saved === 'dark' || saved === 'light') return saved
+  return window.matchMedia?.('(prefers-color-scheme: dark)').matches
+    ? 'dark'
+    : 'light'
+}
+
 export default function App() {
+  const [theme, setTheme] = useState(getInitialTheme)
+
+  useEffect(() => {
+    document.documentElement.dataset.theme = theme
+    localStorage.setItem('theme', theme)
+  }, [theme])
+
+  const dark = theme === 'dark'
+
   return (
     <div className="app">
       <header className="topnav">
         <h1 className="brand">
-          <span className="brand-cat">🐱</span>
+          <span className="brand-cat">{dark ? '🌙' : '🐱'}</span>
           Purrfect Tasks
         </h1>
         <nav>
@@ -16,6 +36,15 @@ export default function App() {
           <NavLink to="/projects"><span className="nav-emoji">📁</span>Projects</NavLink>
           <NavLink to="/users"><span className="nav-emoji">😺</span>Users</NavLink>
         </nav>
+        <button
+          className="theme-toggle"
+          onClick={() => setTheme(dark ? 'light' : 'dark')}
+          title={dark ? 'Switch to daylight' : 'Switch to midnight cat'}
+          aria-label="Toggle dark mode"
+        >
+          {dark ? '☀️' : '🌙'}
+          <span className="theme-toggle-label">{dark ? 'Daylight' : 'Midnight'}</span>
+        </button>
       </header>
 
       <main className="content">
