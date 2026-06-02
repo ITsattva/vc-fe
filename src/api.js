@@ -1,8 +1,10 @@
 import axios from 'axios'
 
-// All calls use relative paths. Vite's dev proxy (see vite.config.js)
-// forwards /tasks, /projects and /users to http://localhost:8080.
+// All calls go through the /api prefix. Vite's dev proxy (see vite.config.js)
+// strips /api and forwards to http://localhost:8080. The prefix keeps API
+// requests from colliding with the SPA's own routes (/tasks, etc.).
 const client = axios.create({
+  baseURL: '/api',
   headers: { 'Content-Type': 'application/json' },
 })
 
