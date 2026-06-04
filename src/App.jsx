@@ -58,7 +58,16 @@ export default function App() {
       </main>
 
       <footer className="footer">
-        <span>Made with</span> 🐾 <span>for cat people</span>
+        <div className="dancing-kitties" aria-hidden="true">
+          {['🐱', '😸', '😻', '🙀', '😼', '😺', '🐈'].map((cat, i) => (
+            <span key={i} className="kitty" style={{ animationDelay: `${i * 0.15}s` }}>
+              {cat}
+            </span>
+          ))}
+        </div>
+        <div className="footer-credit">
+          <span>Made with</span> 🐾 <span>for cat people</span>
+        </div>
       </footer>
     </div>
   )

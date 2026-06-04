@@ -189,8 +189,48 @@ body {
   font-size: 14px;
   font-weight: 500;
   display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+.footer-credit {
+  display: flex;
   gap: 7px;
   justify-content: center;
+}
+
+/* ---- 💃 Dancing kitties conga line ---- */
+.dancing-kitties {
+  display: flex;
+  gap: 6px;
+  font-size: 28px;
+  line-height: 1;
+}
+.kitty {
+  display: inline-block;
+  transform-origin: 50% 90%;
+  animation: dance 1s ease-in-out infinite;
+  cursor: default;
+  user-select: none;
+}
+/* every other kitty kicks off mirrored, so the line sways back and forth */
+.kitty:nth-child(even) { animation-name: dance-mirror; }
+.kitty:hover { animation-duration: 0.4s; }
+@keyframes dance {
+  0%, 100% { transform: translateY(0) rotate(-12deg); }
+  25%      { transform: translateY(-10px) rotate(8deg); }
+  50%      { transform: translateY(0) rotate(12deg); }
+  75%      { transform: translateY(-10px) rotate(-8deg); }
+}
+@keyframes dance-mirror {
+  0%, 100% { transform: translateY(0) rotate(12deg); }
+  25%      { transform: translateY(-10px) rotate(-8deg); }
+  50%      { transform: translateY(0) rotate(-12deg); }
+  75%      { transform: translateY(-10px) rotate(8deg); }
+}
+/* respect folks who'd rather not watch the kitties boogie */
+@media (prefers-reduced-motion: reduce) {
+  .kitty { animation: none; }
 }
 
 /* ---- Page header ---- */
